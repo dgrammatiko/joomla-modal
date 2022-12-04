@@ -6,7 +6,7 @@ function registerElements() {
   customElements.define('joomla-modal', JoomlaModal);
 }
 
-if (window.HTMLDialogElement !== undefined) {
+if (window.HTMLDialogElement === undefined) {
   // polyfill required
   let scriptOriginalSrc;
   try {
