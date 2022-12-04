@@ -6,9 +6,21 @@ function registerElements() {
   customElements.define('joomla-modal', JoomlaModal);
 }
 
-if (window.HTMLDialogElement === undefined) {
+if (window.HTMLDialogElement !== undefined) {
   // polyfill required
-    import('./polyfill.js').then(registerElements);
+  let scriptOriginalSrc;
+  try {
+    scriptOriginalSrc = document.currentScript.src;
+  } catch (err) {
+    scriptOriginalSrc = import.meta.url;
+  }
+
+  if (scriptOriginalSrc) {
+    const script = document.createElement('script');
+    script.src = scriptOriginalSrc.replace('/index.js', '/polyfill.js');
+    script.addEventListener('load', registerElements);
+    document.head.appendChild(script);
+  }
 } else {
   registerElements();
 }
