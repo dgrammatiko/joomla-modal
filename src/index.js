@@ -10,9 +10,9 @@ if (window.HTMLDialogElement === undefined) {
   // polyfill required
   let scriptOriginalSrc;
   try {
-    scriptOriginalSrc = document.currentScript.src;
-  } catch (err) {
     scriptOriginalSrc = import.meta.url;
+  } catch (err) {
+    scriptOriginalSrc = document.currentScript.src;
   }
 
   if (scriptOriginalSrc) {
