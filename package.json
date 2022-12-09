@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^3.2.3"
+    "vite": "^4.0.0"
   },
   "dependencies": {
     "@rollup/plugin-terser": "^0.2.0"
